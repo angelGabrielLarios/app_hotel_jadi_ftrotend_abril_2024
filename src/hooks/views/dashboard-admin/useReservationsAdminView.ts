@@ -19,7 +19,7 @@ export const useReservationsAdminView = () => {
         const formData = new FormData(event.target as HTMLFormElement)
         const idReservationInputValue = formData.get('id_reservation') as string
 
-        console.log(idReservationInputValue, 'idReservationInputValue')
+
 
         setFilteredReservations(
             reservations.filter((reservation) => {
@@ -27,6 +27,26 @@ export const useReservationsAdminView = () => {
                     return true
                 }
                 return reservation.id === idReservationInputValue.trim()
+            })
+        )
+    }
+
+    const handleSubmitSearchBedroomByNameUser = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        const formData = new FormData(event.target as HTMLFormElement)
+        const nameUserInputValue = formData.get('name_user') as string
+
+        console.log(nameUserInputValue, 'nameUserInputValue')
+
+        setFilteredReservations(
+            reservations.filter((reservation) => {
+
+                if (!nameUserInputValue) {
+                    return true
+                }
+                const nameComplete = `${reservation.user.firstName} ${reservation.user.lastName}`
+                console.log(nameComplete)
+                return nameComplete.includes(nameUserInputValue.trim().toLowerCase())
             })
         )
     }
@@ -47,6 +67,7 @@ export const useReservationsAdminView = () => {
         numBedroom,
         changeNumBedroom,
         handleSubmitSearchBedroomByCodeReservations,
+        handleSubmitSearchBedroomByNameUser,
         filteredReservations
     }
 }
