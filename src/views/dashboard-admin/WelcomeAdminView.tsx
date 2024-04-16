@@ -7,7 +7,7 @@ export const WelcomeAdminView = () => {
 
             <img src={dashboard} alt="dashboard admin" className="w-full md:w-[44rem] mb-4" />
             <h1 className="py-3 mb-10 text-xl font-bold text-center capitalize text-primary sm:text-2xl md:3xl lg:text-4xl">
-                ¡Bienvenido al panel de adminstrador!
+                ¡Bienvenido al panel de administrador!
             </h1>
             <p className="w-full text-sm text-center">
                 Abre la opción <IconDotsCircleHorizontal className="inline text-primary" /> para ver las acciones que puedes hacer
